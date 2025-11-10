@@ -1,6 +1,6 @@
 ## Discrete PID controller approximation
 
-Consider a continous PID controller:
+Consider a continuous PID controller:
 
 $$u(t) = K_p e(t) + \frac{K_p}{T_i}\int_0^t e(t) dt + K_p T_d \frac{d}{dt}e(t)$$
 
@@ -39,3 +39,36 @@ $$q_0 = K_p \left( 1 + \frac{T}{2 T_i} + \frac{T_d}{T}\right)$$
 $$q_1 = -K_p \left( 1 - \frac{T}{2 T_i} + \frac{2T_d}{T} \right)$$
 
 $$q_2 = \frac{K_p T_d}{T}$$
+
+---
+
+### Note:
+
+Alternatively, an algebraic manipulation that leads to the same approximation is explained here.
+First, let´s recall the *decomposition* property of the definite integral:
+
+$$\frac{K_p}{T_i}\int_{0}^{kT} e(t) dt = \frac{K_p}{T_i} \left( \int_{0}^{(k-1)T} e(t) dt + \int_{(k-1)T}^{kT} e(t) dt \right)$$
+
+Given that:
+
+$$u([k-1]T) = K_p e([k-1]T) + \frac{K_p}{T_i}\int_{0}^{[k-1]T} e(t) dt + K_p T_d \frac{d}{dt}e([k-1]T)$$
+
+Solving for the term $\frac{K_p}{T_i}\int_{0}^{[k-1]T} e(t) dt$ from the previous equation:
+
+$$\frac{K_p}{T_i}\int_{0}^{[k-1]T} e(t) dt = u([k-1]T) - K_p e([k-1]T) - K_p T_d \frac{d}{dt}e([k-1]T)$$
+
+The control output $u(kT)$ can be decomposed as follows:
+
+$$u(kT) = K_p e(kT) + \frac{K_p}{T_i}\int_{0}^{(k-1)T} e(t) dt + \frac{K_p}{T_i}\int_{(k-1)T}^{kT} e(t) dt+ K_p T_d \frac{d}{dt}e(kT)$$
+
+Since we already know what the term $\frac{K_p}{T_i}\int_{0}^{[k-1]T} e(t) dt$ is equivalent to, we can substitute it here:
+
+$$u(kT) = K_p e(kT) + \left(u([k-1]T) - K_p e([k-1]T) - K_p T_d \frac{d}{dt}e([k-1]T)\right) + \frac{K_p}{T_i}\int_{(k-1)T}^{kT} e(t) dt+ K_p T_d \frac{d}{dt}e(kT)$$
+
+Now, by applying the trapezoidal approximation to the integral term and the finite difference approximation to the derivative term, we finally obtain:
+
+$$u[k] = K_p e[k] + u[k-1] - K_p e[k-1] - \frac{K_p T_d}{T} (e[k-1] - e[k-2]) + \frac{K_p}{T_i}\frac{T}{2} \left( e[k-1] + e[k] \right) + \frac{K_p T_d}{T} (e[k] - e[k-1])$$
+
+$$\boxed{
+u[k] = u[k-1] + K_p\left( 1 + \frac{T}{2T_i} + \frac{T_d}{T}\right)e[k] - K_p\left(1 - \frac{T}{2T_i} + \frac{2T_d}{T} \right)e[k-1] + \frac{K_p T_d}{T}e[k-2]
+}$$
