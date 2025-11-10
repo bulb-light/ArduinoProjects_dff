@@ -11,8 +11,14 @@ period and $k$ the discrete-time index ($\mathbb{Z}_{\ge 0}$).
 
 $$u(kT) = K_p e(kT) + \frac{K_p}{T_i}\int_{0}^{kT} e(t) dt + K_p T_d \frac{d}{dt}e(kT)$$
 
-Then, using the trapezoidal approximation of the integral term and the finite difference approximation of the derivative
-term, the discrete form of the controller can be derived as:
+Then, using the ***trapezoidal approximation of the integral term and the finite difference approximation of the derivative
+term***, the discrete form of the controller can be derived as:
+
+
+
+https://github.com/user-attachments/assets/495cdff6-2721-4e73-b774-181abe9bd0c9
+
+
 
 $$u[kT] = K_p e[kT] + \frac{K_p}{T_i}\frac{T}{2}\left(e[0] + 2e[T] + ... + 2e[(k-1)T] + e[kT]\right) + K_p T_d \frac{e[kT] - e[(k-1)T]}{T}$$
 
