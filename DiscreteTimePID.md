@@ -20,6 +20,8 @@ https://github.com/user-attachments/assets/495cdff6-2721-4e73-b774-181abe9bd0c9
 
 
 
+$$u[kT] = K_p e[kT] + \frac{K_p}{T_i}\frac{T}{2}\sum_{k=0}^{n}\left(e[(k-1)T] + e[kT]\right) + K_p T_d \frac{e[kT] - e[(k-1)T]}{T}$$
+
 $$u[kT] = K_p e[kT] + \frac{K_p}{T_i}\frac{T}{2}\left(e[0] + 2e[T] + ... + 2e[(k-1)T] + e[kT]\right) + K_p T_d \frac{e[kT] - e[(k-1)T]}{T}$$
 
 Since $T$ is a constant, the independent variable is simply $k$, so we can rewrite the previous equation as follows:
@@ -48,7 +50,7 @@ $$q_2 = \frac{K_p T_d}{T}$$
 
 ---
 
-### Note:
+### Note 1:
 
 Alternatively, an algebraic manipulation that leads to the same approximation is explained here.
 First, let´s recall the *decomposition* property of the definite integral:
@@ -77,4 +79,12 @@ $$u[k] = K_p e[k] + u[k-1] - K_p e[k-1] - \frac{K_p T_d}{T} (e[k-1] - e[k-2]) + 
 
 $$\boxed{
 u[k] = u[k-1] + K_p\left( 1 + \frac{T}{2T_i} + \frac{T_d}{T}\right)e[k] - K_p\left(1 - \frac{T}{2T_i} + \frac{2T_d}{T} \right)e[k-1] + \frac{K_p T_d}{T}e[k-2]
+}$$
+
+### Note 2:
+
+If it is necessary to include an anti-windup mechanism, such as the clamping method, the controller is preferably expressed in its accumulator form:
+
+$$\boxed{
+u[k] = K_p e[k] + \frac{K_p}{T_i}\frac{T}{2}\sum_{k=0}^{n}\left(e[k-1] + e[k]\right) + K_p T_d \frac{e[k] - e[k-1]}{T}
 }$$
