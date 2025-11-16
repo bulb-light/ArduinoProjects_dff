@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 David Chirme Sisa ([dff-laoise](https://github.com/bulb-light)) 
+// SPDX-License-Identifier: MIT
+
 #include <Arduino.h>
 #include <PID.h>
 
@@ -7,16 +10,21 @@
 // pwm output pins
 #define TIP31C_PIN 3
 
-// instantiate PID object (kp, ki, kd, Ts, min_lim, max_lim)
-PID tempPID(0.01, 0.001, 0.0, 0.010, 0.0, 255.0);
+float Kp = 2.0;    // proportional gain
+float Ti = 40.0;   // integral time constant in seconds
+float Td = 5.0;    // derivative time constant in seconds
+float sampleTimeSec = 0.5; // sampling time in seconds
+float minOutput = 0.0;   // minimum output
+float maxOutput = 255.0; // maximum output
+PID tempPID(Kp, Ti, Td, sampleTimeSec, minOutput, maxOutput);
 
 // control vars
-float temp_ref = 350.0; // setpoint
+float temp_ref = 50.00; // setpoint
 
 // timer control
 long prev_millis = 0;
 long prev_millis_temp = 0;
-long control_interval = 20; //10ms interval for speed reading
+long control_interval = (int) (1000 * sampleTimeSec); //500ms interval for control loop
 
 void setup() {
   // initialize serial communication
@@ -25,12 +33,15 @@ void setup() {
   // initialize mcu ports
   pinMode(LM35_PIN, INPUT);
   pinMode(TIP31C_PIN, OUTPUT);
+ 
+  // initialize PID controller
+  tempPID.resetStates();
+  // tempPID.setSampleTime(0.5); // 500ms sample time
+  // tempPID.setOutputLimits(0.0, 255.0);
+  tempPID.computePIDOut(0.0);
 }
 
 void loop() {
-  // pwm output to control the heater
-  analogWrite(TIP31C_PIN, 128);
-
   // filter the sensor reading
   int sensor_value = 0;
   float temperature_c = 0.0;
@@ -42,24 +53,35 @@ void loop() {
     temperature_c = voltage * 100.0; // LM35 outputs 10mV per degree Celsius
   }
 
-  // Serial.print("Temperature: ");
-  Serial.print(10);
-  Serial.print(" ");
-  Serial.print(30);
-  Serial.print(" ");
-  Serial.println(temperature_c);
-  // Serial.println(" °C");
+  // timed control loop
+  long current_millis = millis();
+  if (current_millis - prev_millis_temp >= control_interval) {
+    prev_millis_temp = current_millis;
 
-  // Serial for teleplot
-  Serial.print(">Temp:");
-  Serial.println(temperature_c);
+    // compute PID output
+    float error = temp_ref - temperature_c;
+    float pid_output = tempPID.computePIDOut(error);
 
-  Serial.print(">Set:");
-  Serial.println(0);
-  
-  // int setpointInt = (int) ((30.0 /100) * (1023.0/5.0)); // 30 degrees C to 10 bits ADC value
-  
+    // apply PID output to heater
+    analogWrite(TIP31C_PIN, (int)pid_output);
 
-  // downscale sensor reading sensorvalue to fit in a byte
-  delay(200); // Wait for a second before the next reading
+    Serial.print(temp_ref);
+    Serial.print(",");
+    Serial.print(temperature_c);
+    Serial.print(",");
+    Serial.println(pid_output);
+
+    // Serial for teleplot
+    Serial.print(">Temp:");
+    Serial.println(temperature_c);
+
+    Serial.print(">Ref:");
+    Serial.println(temp_ref);
+
+    Serial.print(">PIDout:");
+    Serial.println(pid_output);
+
+    Serial.print(">Zero:");
+    Serial.println(0);
+  }
 }
