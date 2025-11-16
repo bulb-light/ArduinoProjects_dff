@@ -12,6 +12,7 @@ Click the title to explore.
 ## 🔍 Explore important topics
 
 [![Discrete-time PID controller](https://img.shields.io/badge/Discrete%20Time%20PID-Go-Color?style=for-the-badge)](https://github.com/bulb-light/ArduinoProjects_dff/blob/main/DiscreteTimePID.md)
+[![Arduino and ESP32 in VSCODE](https://img.shields.io/badge/Arduino%20and%20ESP32%20in%20VSCODE-Go-Color?style=for-the-badge)](https://youtube.com/playlist?list=PLBDyYA13fp43iDQHjRhtriKRwh3nSMSt7&si=Qqkj07vAAFYU0ftQ)
 
 ---
 📝 License Change Notice
@@ -37,6 +38,7 @@ Click the title to explore.
 | Email | davidcs.ee.10@gmail.com |
 | LinkedIn | [david](https://www.linkedin.com/in/davidcsee/) |
 | Tiktok | [david_dff_bulblight](https://www.tiktok.com/@david_dff_bulblight)|
+| YouTube| [david-dff](https://www.youtube.com/@david-dff-bulblight)|
 
 ---
 
