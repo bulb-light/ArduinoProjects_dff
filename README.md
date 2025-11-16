@@ -17,12 +17,16 @@ Click the title to explore.
 📝 License Change Notice
 
 - As of 2025-11-16, this project has been relicensed from GNU GPL v3 to the MIT License.
-
 - All new releases going forward will be distributed under the MIT License.
-
 - Previous versions (before this date) remain under the GPL v3 for anyone who has already obtained them. 
-
 - The full text of the MIT License is now available in the [LICENSE](./LICENSE) file in this repository.
+
+---
+
+## 📜 License Structure
+
+- This repository is **licensed under the MIT License** (see `LICENSE` at the root).  
+- Each sub-project in its own folder also has its own `LICENSE` file, which is **also MIT**, but reflects the correct copyright author for that project.  
 
 ---
 
