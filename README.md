@@ -14,6 +14,17 @@ Click the title to explore.
 [![Discrete-time PID controller](https://img.shields.io/badge/Discrete%20Time%20PID-Go-Color?style=for-the-badge)](https://github.com/bulb-light/ArduinoProjects_dff/blob/main/DiscreteTimePID.md)
 
 ---
+📝 License Change Notice
+
+- As of 2025-11-16, this project has been relicensed from GNU GPL v3 to the MIT License.
+
+- All new releases going forward will be distributed under the MIT License.
+
+- Previous versions (before this date) remain under the GPL v3 for anyone who has already obtained them. 
+
+- The full text of the MIT License is now available in the [LICENSE](./LICENSE) file in this repository.
+
+---
 
 ## 📫 How to Reach Me
 
