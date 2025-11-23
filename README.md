@@ -1,6 +1,6 @@
 # ArduinoProjects_dff
 
-This repository contains a collection of Arduino projects covering a variety of topics.
+This repository contains a collection of Arduino and ESP32 projects covering a variety of topics.
 
 Click the title to explore.
 
