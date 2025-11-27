@@ -33,13 +33,19 @@ TemperatureControlLM35/
 - TIP31C transistor
 - Resistors and other basic electronic components
 
-### Installation
-1. Clone this repository:
+### Installation/Usage
+1. Clone this repository (it depens on [PID_lib_dff](https://github.com/bulb-light/PID_lib_dff.git)):
    ```bash
-   git clone https://github.com/bulb-light/TemperatureControlLM35.git
+   git clone --recursive https://github.com/bulb-light/TemperatureControlLM35.git
    ```
-2. Open the project in your preferred IDE.
-3. Upload the `src/main.cpp` file to your Arduino board.
+   If you have already cloned the project without `--recursive`, run these commands from the project root:
+   ```bash
+   git submodule init
+   git submodule update --recursive
+   ```
+   This will fetch and checkout the required submodule content.
+3. Open the project in your preferred IDE.
+4. Upload the `src/main.cpp` file to your Arduino board.
 
 ### Usage
 1. Connect the LM35 sensor to the analog pin `A0` and the TIP31C transistor to the PWM pin `D3`.
