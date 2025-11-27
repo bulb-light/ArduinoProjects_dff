@@ -1,0 +1,3 @@
+[submodule "TemperatureControlLM35/lib/PID"]
+	path = TemperatureControlLM35/lib/PID
+	url = https://github.com/bulb-light/PID_lib_dff.git
