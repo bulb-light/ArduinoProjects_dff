@@ -16,6 +16,21 @@ Click the title to explore.
 [![Arduino and ESP32 in VSCODE](https://img.shields.io/badge/Arduino%20and%20ESP32%20in%20VSCODE-Go-Color?style=for-the-badge)](https://youtube.com/playlist?list=PLBDyYA13fp43iDQHjRhtriKRwh3nSMSt7&si=Qqkj07vAAFYU0ftQ)
 
 ---
+### Installation/Usage
+1. Clone this repository (it depens on [PID_lib_dff](https://github.com/bulb-light/PID_lib_dff.git)):
+   ```bash
+   git clone --recursive https://github.com/bulb-light/ArduinoProjects_dff.git
+   ```
+   If you have already cloned the project without `--recursive`, run these commands from the project root:
+   ```bash
+   git submodule init
+   git submodule update --recursive
+   ```
+   This will fetch and checkout the required submodule content.
+3. Open the project in your preferred IDE.
+4. Upload the `src/main.cpp` file to your Arduino board.
+
+---
 📝 License Change Notice
 
 - As of 2025-11-16, this project has been relicensed from GNU GPL v3 to the MIT License.
