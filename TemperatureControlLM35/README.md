@@ -36,7 +36,7 @@ TemperatureControlLM35/
 ### Installation/Usage
 1. Clone this repository (it depens on [PID_lib_dff](https://github.com/bulb-light/PID_lib_dff.git)):
    ```bash
-   git clone --recursive https://github.com/bulb-light/TemperatureControlLM35.git
+   git clone --recursive https://github.com/bulb-light/ArduinoProjects_dff.git
    ```
    If you have already cloned the project without `--recursive`, run these commands from the project root:
    ```bash
