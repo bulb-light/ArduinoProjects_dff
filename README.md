@@ -63,6 +63,10 @@ Click the title to explore.
 I’m open to collaboration on open source, side projects, or mentoring.  
 Feel free to reach out!
 
+If you appreciate my work, you can support its development and maintenance. Improve the quality of the libraries by providing issues and Pull Requests, or make a donation.
+
+Thank you.
+
 ---
 
 *“You only live once, but if you do it right, once is enough.”*
