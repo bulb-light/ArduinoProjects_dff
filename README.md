@@ -12,7 +12,7 @@ Click the title to explore.
 ---
 ## 🔍 Explore important topics
 
-[![Discrete-time PID controller](https://img.shields.io/badge/Discrete%20Time%20PID-Go-Color?style=for-the-badge)](https://github.com/bulb-light/ArduinoProjects_dff/blob/main/DiscreteTimePID.md)
+[![Discrete-time PID controller](https://img.shields.io/badge/Discrete%20Time%20PID-Go-Color?style=for-the-badge)](https://github.com/bulb-light/PID_lib_dff/blob/main/DiscreteTimePID.md)
 [![Arduino and ESP32 in VSCODE](https://img.shields.io/badge/Arduino%20and%20ESP32%20in%20VSCODE-Go-Color?style=for-the-badge)](https://youtube.com/playlist?list=PLBDyYA13fp43iDQHjRhtriKRwh3nSMSt7&si=Qqkj07vAAFYU0ftQ)
 
 ---
