@@ -1,3 +1,12 @@
 [submodule "TemperatureControlLM35/lib/PID"]
 	path = TemperatureControlLM35/lib/PID
 	url = https://github.com/bulb-light/PID_lib_dff.git
+[submodule "DCMotorSpeedCurrentReading/lib/SpeedEstimator_dff"]
+	path = DCMotorSpeedCurrentReading/lib/SpeedEstimator_dff
+	url = https://github.com/bulb-light/SpeedEstimator_dff.git
+[submodule "DCMotorSpeedCurrentReading/lib/INA219"]
+	path = DCMotorSpeedCurrentReading/lib/INA219
+	url = https://github.com/RobTillaart/INA219.git
+[submodule "DCMotorSpeedCurrentReading/lib/DCMotorDriver_dff"]
+	path = DCMotorSpeedCurrentReading/lib/DCMotorDriver_dff
+	url = https://github.com/bulb-light/DCMotorDriver_dff.git
