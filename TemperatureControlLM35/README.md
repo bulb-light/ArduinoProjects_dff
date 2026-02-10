@@ -47,10 +47,23 @@ TemperatureControlLM35/
 3. Open the project in your preferred IDE.
 4. Upload the `src/main.cpp` file to your Arduino board.
 
-### Usage
+## Usage
 1. Connect the LM35 sensor to the analog pin `A0` and the TIP31C transistor to the PWM pin `D3`.
 2. Adjust the setpoint temperature in the `main.cpp` file.
 3. Monitor the serial output for real-time temperature and PID values.
+
+The project result is shown below.
+
+<p align="center">
+   <img src="images/temp_pid_control.png" width="650" alt="temp pid control plots">
+</p>
+
+### Block diagram
+Refer to the following diagram for the wiring connections:
+
+<p align="center">
+   <img src="images/temperature_plant_connections.webp" width="600" alt="temp control connections">
+</p>
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
