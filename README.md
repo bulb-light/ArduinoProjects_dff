@@ -30,7 +30,7 @@ Click the title to explore.
    
    If you want to update the submodules to the lastest commit, run the following command from the project root:
    ```bash
-   git submodule update --init --recursive
+   git submodule update --init --recursive --remote
    ```
 
 3. Open the project in your preferred IDE.
