@@ -27,6 +27,7 @@ Click the title to explore.
    git submodule update --recursive
    ```
    This will fetch and checkout the required submodule content.
+   
    If you want to update the submodules to the lastest commit, run the following command from the project root:
    ```bash
    git submodule update --init --recursive
