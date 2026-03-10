@@ -49,7 +49,7 @@ unsigned long interval = 10; // 10ms interval
 // Implement your own method to read encoder pulses. This is just a simplified example.
 
 // globals speed measurement method 1
-volatile int pos_i = 0;
+volatile long pos_i = 0;
 
 // method to read encoder
 void readEncoder();
@@ -92,7 +92,7 @@ void loop() {
   myMotor.moveMotor(0, 1, pwm);
   // read the position in an atomic block
   // to avoid potential misreads
-  int pos = 0;
+  long pos = 0;
   ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
     pos = pos_i;
   } 
