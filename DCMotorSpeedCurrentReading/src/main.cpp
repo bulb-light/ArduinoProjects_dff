@@ -7,6 +7,7 @@
 #include <DCMotorDriver.h>
 #include <SpeedEstimator.h>
 #include <INA219.h>
+#include <DigitalFilter.h>
 
 // Motor control pins
 // Modify these pin definitions as per your wiring
@@ -35,15 +36,27 @@ SpeedEstimator speedEstimator(ppr, gearRatio); // ppr, gear
 // Include the Wire library in your main project if needed.
 INA219 INA(0x40); // default address
 
-// globals speed measurement and control variables
-float speedRPM = 0.0; // current velocity
+// globals speed and current measurement and control variables
+float speedRPM = 0.0; // velocity
+float filteredSpeedRPM = 0.0; // filtered velocity
+
+float current_mA = 0.0; // current measurement
+float filteredCurrent_mA = 0.0; // filtered current measurement
 int pwm = 0; // motor pwm
 
 // timer control
 // using unsigned long for millis() compatibility and overflow handling
 unsigned long prevMillis = 0;
 unsigned long prevMillisSpeed = 0;
-unsigned long interval = 10; // 10ms interval
+unsigned long intervalTs = 10; // Sampling interval 10ms
+
+// Digital filter for current measurement
+// cutoff=10Hz, sampling=100Hz
+DigitalFilter currentFilter(DigitalFilter::Type::EWMALowPass,
+     10.0, 1.0 / ((float) intervalTs / 1000.0));
+// cutoff=10Hz, sampling=100Hz
+DigitalFilter speedFilter(DigitalFilter::Type::EWMALowPass,
+     10.0, 1.0 / ((float) intervalTs / 1000.0));
 
 // NOTE: These steps are mandatory to use the SpeedEstimator class!
 // Implement your own method to read encoder pulses. This is just a simplified example.
@@ -98,24 +111,19 @@ void loop() {
   } 
 
   // speed calculation at defined interval 10ms
-  if ((currentMillis - prevMillisSpeed) > interval){
+  if ((currentMillis - prevMillisSpeed) > intervalTs){
     // getting speed
     speedRPM = speedEstimator.estimateSpeed(pos);
+    // filtering speed
+    filteredSpeedRPM = speedFilter.computeFilterOut(speedRPM);
+
+    // get current measurement
+    current_mA = INA.getCurrent_mA();
+    // filter current measurement
+    filteredCurrent_mA = currentFilter.computeFilterOut(current_mA);
+
     prevMillisSpeed = currentMillis;
   }
-
-  Serial.print((float) currentMillis / 1000.0);
-  Serial.print(" ");
-  Serial.print(pwm);
-  Serial.print(" ");
-  Serial.print(speedRPM);
-  Serial.print(" ");
-  // Serial.print(INA.getBusVoltage_mV(), 2);
-  // Serial.print(" ");
-  // Serial.println(INA.getFilteredtCurrent_mA(), 2);
-  Serial.println(INA.getCurrent_mA(), 2);
-
-  // delay(10);
 
   // Timing control for pwm changes
   if ((currentMillis - prevMillis) > 1000 && (currentMillis - prevMillis) < 2000)
@@ -124,6 +132,18 @@ void loop() {
   } else if ((currentMillis - prevMillis) > 2000) {
     pwm = 150;
   }
+
+  // Serial.print(((float)currentMillis) / 1000.0);
+  Serial.print(" ");
+  Serial.print(pwm);
+  Serial.print(" ");
+  Serial.print(filteredSpeedRPM, 2);
+  Serial.print(" ");
+  Serial.print(speedRPM, 2);
+  Serial.print(" ");
+  Serial.print(filteredCurrent_mA, 2);
+  Serial.print(" ");
+  Serial.println(current_mA, 2);
 }
 
 void readEncoder() {

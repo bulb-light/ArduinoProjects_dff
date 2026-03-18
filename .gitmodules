@@ -10,3 +10,6 @@
 [submodule "DCMotorSpeedCurrentReading/lib/DCMotorDriver_dff"]
 	path = DCMotorSpeedCurrentReading/lib/DCMotorDriver_dff
 	url = https://github.com/bulb-light/DCMotorDriver_dff.git
+[submodule "DCMotorSpeedCurrentReading/lib/DigitalFilter_dff"]
+	path = DCMotorSpeedCurrentReading/lib/DigitalFilter_dff
+	url = https://github.com/bulb-light/DigitalFilter_dff.git
