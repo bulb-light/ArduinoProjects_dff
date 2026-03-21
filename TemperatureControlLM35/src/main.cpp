@@ -19,12 +19,12 @@ float maxOutput = 255.0; // maximum output
 PID tempPID(Kp, Ti, Td, sampleTimeSec, minOutput, maxOutput);
 
 // control vars
-float temp_ref = 50.00; // setpoint
+float tempRef = 50.00; // setpoint
 
 // timer control
-long prev_millis = 0;
-long prev_millis_temp = 0;
-long control_interval = (int) (1000 * sampleTimeSec); //500ms interval for control loop
+long prevMillis = 0;
+long prevMillisTemp = 0;
+long controlIntervalTs = (int) (1000 * sampleTimeSec); //500ms interval for control loop
 
 void setup() {
   // initialize serial communication
@@ -43,43 +43,45 @@ void setup() {
 
 void loop() {
   // filter the sensor reading
-  int sensor_value = 0;
+  int sensorValue = 0;
+  // actual temperature in Celsius
   float temperature_c = 0.0;
 
+  // simple moving average filter for sensor reading
   for (int i = 0; i < 10; i++)
   {
-    sensor_value = analogRead(LM35_PIN);
-    float voltage = sensor_value * (5.0 / 1023.0); // Convert ADC value to voltage
+    sensorValue = analogRead(LM35_PIN);
+    float voltage = sensorValue * (5.0 / 1023.0); // Convert ADC value to voltage
     temperature_c = voltage * 100.0; // LM35 outputs 10mV per degree Celsius
   }
 
   // timed control loop
-  long current_millis = millis();
-  if (current_millis - prev_millis_temp >= control_interval) {
-    prev_millis_temp = current_millis;
+  long currentMillis = millis();
+  if (currentMillis - prevMillisTemp >= controlIntervalTs) {
+    prevMillisTemp = currentMillis;
 
     // compute PID output
-    float error = temp_ref - temperature_c;
-    float pid_output = tempPID.computePIDOut(error);
+    float error = tempRef - temperature_c;
+    float pidOutput = tempPID.computePIDOut(error);
 
     // apply PID output to heater
-    analogWrite(TIP31C_PIN, (int)pid_output);
+    analogWrite(TIP31C_PIN, (int)pidOutput);
 
-    Serial.print(temp_ref);
+    Serial.print(tempRef);
     Serial.print(",");
     Serial.print(temperature_c);
     Serial.print(",");
-    Serial.println(pid_output);
+    Serial.println(pidOutput);
 
-    // Serial for teleplot
+    // Serial for teleplot in VSCode
     Serial.print(">Temp:");
     Serial.println(temperature_c);
 
     Serial.print(">Ref:");
-    Serial.println(temp_ref);
+    Serial.println(tempRef);
 
     Serial.print(">PIDout:");
-    Serial.println(pid_output);
+    Serial.println(pidOutput);
 
     Serial.print(">Zero:");
     Serial.println(0);

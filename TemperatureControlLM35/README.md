@@ -55,14 +55,14 @@ TemperatureControlLM35/
 The project result is shown below.
 
 <p align="center">
-   <img src="images/temp_pid_control.png" width="650" alt="temp pid control plots">
+   <img src="images/temp_pid_control1.png" width="700" alt="temp pid control plots">
 </p>
 
 ### Block diagram
 Refer to the following diagram for the wiring connections:
 
 <p align="center">
-   <img src="images/temperature_plant_connections.webp" width="600" alt="temp control connections">
+   <img src="images/temperature_plant_connections.webp" width="700" alt="temp control connections">
 </p>
 
 ## License
