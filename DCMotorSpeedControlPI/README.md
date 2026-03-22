@@ -13,7 +13,7 @@ This project implements a porportional-integral PI control system for a DC motor
 ## Project Structure
 
 ```
-SpeedDCMotorControl/
+DCMotorSpeedControlPI/
 ├── include/                # Header files
 ├── lib/                    # Libraries
 │   ├── DCMotorDriver_dff/  # Motor driver library
