@@ -30,6 +30,7 @@ Click the title to explore.
 |---|---|---|
 | [TemperatureControlLM35](https://github.com/bulb-light/ArduinoProjects_dff/tree/main/TemperatureControlLM35) | PID control of a simple temperature plant | PID, Arduino, LM35 sensor |
 | [DCMotorSpeedCurrentReading](https://github.com/bulb-light/ArduinoProjects_dff/tree/main/DCMotorSpeedCurrentReading) | DC motor speed and current reading | Speed Estimator, Digital Filters, Current INA219 sensor, Arduino, |
+| [SpeedDCMotorControl](https://github.com/bulb-light/ArduinoProjects_dff/tree/main/SpeedDCMotorControl) | PI speed control for a DC motor | Speed Estimator, Digital Filters, PI controller, Arduino, |
 
 ---
 ## 🔍 Explore important topics
