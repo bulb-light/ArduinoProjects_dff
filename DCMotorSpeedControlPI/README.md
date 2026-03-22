@@ -1,4 +1,4 @@
-# SpeedDCMotorControl
+# DCMotorSpeedControlPI
 
 This project implements a porportional-integral PI control system for a DC motor.
 
@@ -61,7 +61,7 @@ SpeedDCMotorControl/
 
 2. Navigate to the project directory:
    ```bash
-   cd ArduinoProjects_dff/SpeedDCMotorControl
+   cd ArduinoProjects_dff/DCMotorSpeedControlPI
    ```
 3. Open the project in your preferred IDE (e.g., VS Code with the PlatformIO extension).
 
