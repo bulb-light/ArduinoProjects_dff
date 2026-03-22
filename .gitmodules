@@ -13,3 +13,15 @@
 [submodule "DCMotorSpeedCurrentReading/lib/DigitalFilter_dff"]
 	path = DCMotorSpeedCurrentReading/lib/DigitalFilter_dff
 	url = https://github.com/bulb-light/DigitalFilter_dff.git
+[submodule "SpeedDCMotorControl/lib/DCMotorDriver_dff"]
+	path = SpeedDCMotorControl/lib/DCMotorDriver_dff
+	url = https://github.com/bulb-light/DCMotorDriver_dff.git
+[submodule "SpeedDCMotorControl/lib/PID_lib_dff"]
+	path = SpeedDCMotorControl/lib/PID_lib_dff
+	url = https://github.com/bulb-light/PID_lib_dff.git
+[submodule "SpeedDCMotorControl/lib/DigitalFilter_dff"]
+	path = SpeedDCMotorControl/lib/DigitalFilter_dff
+	url = https://github.com/bulb-light/DigitalFilter_dff.git
+[submodule "SpeedDCMotorControl/lib/SpeedEstimator_dff"]
+	path = SpeedDCMotorControl/lib/SpeedEstimator_dff
+	url = https://github.com/bulb-light/SpeedEstimator_dff.git
