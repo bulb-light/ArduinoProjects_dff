@@ -25,3 +25,18 @@
 [submodule "DCMotorSpeedControlPI/lib/SpeedEstimator_dff"]
 	path = DCMotorSpeedControlPI/lib/SpeedEstimator_dff
 	url = https://github.com/bulb-light/SpeedEstimator_dff.git
+[submodule "DCMotorCascadedSpeedControlPI/lib/DigitalFilter_dff"]
+	path = DCMotorCascadedSpeedControlPI/lib/DigitalFilter_dff
+	url = https://github.com/bulb-light/DigitalFilter_dff.git
+[submodule "DCMotorCascadedSpeedControlPI/lib/PID_lib_dff"]
+	path = DCMotorCascadedSpeedControlPI/lib/PID_lib_dff
+	url = https://github.com/bulb-light/PID_lib_dff.git
+[submodule "DCMotorCascadedSpeedControlPI/lib/DCMotorDriver_dff"]
+	path = DCMotorCascadedSpeedControlPI/lib/DCMotorDriver_dff
+	url = https://github.com/bulb-light/DCMotorDriver_dff.git
+[submodule "DCMotorCascadedSpeedControlPI/lib/SpeedEstimator_dff"]
+	path = DCMotorCascadedSpeedControlPI/lib/SpeedEstimator_dff
+	url = https://github.com/bulb-light/SpeedEstimator_dff.git
+[submodule "DCMotorCascadedSpeedControlPI/lib/INA219"]
+	path = DCMotorCascadedSpeedControlPI/lib/INA219
+	url = https://github.com/RobTillaart/INA219.git
