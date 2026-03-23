@@ -31,6 +31,7 @@ Click the title to explore.
 | [TemperatureControlLM35](https://github.com/bulb-light/ArduinoProjects_dff/tree/main/TemperatureControlLM35) | PID control of a simple temperature plant | PID, Arduino, C++, LM35 sensor |
 | [DCMotorSpeedCurrentReading](https://github.com/bulb-light/ArduinoProjects_dff/tree/main/DCMotorSpeedCurrentReading) | DC motor speed and current reading | Speed Estimator, Digital Filters, Current INA219 sensor, Arduino, C++ |
 | [DCMotorSpeedControlPI](https://github.com/bulb-light/ArduinoProjects_dff/tree/main/DCMotorSpeedControlPI) | PI speed control for a DC motor | Speed Estimator, Digital Filters, PI controller, Arduino, C++|
+| [DCMotorCascadedSpeedControlPI](https://github.com/bulb-light/ArduinoProjects_dff/tree/main/DCMotorCascadedSpeedControlPI) | Cascaded PI speed control for a DC motor: PI control in the outer loop and PI current in the inner loop | Speed Estimator, Digital Filters, PI controller, Arduino, C++|
 
 ---
 ## 🔍 Explore important topics

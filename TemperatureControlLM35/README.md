@@ -52,7 +52,7 @@ TemperatureControlLM35/
 2. Adjust the setpoint temperature in the `main.cpp` file.
 3. Monitor the serial output for real-time temperature and PID values.
 
-The project result is shown below.
+The project results are shown below, where in the top axis the blue line represents the reference temperatue in degree Celcius, the red line represents the actual temperature in degrees Celcius, and in the bottom axis the PWM signal is shown.
 
 <p align="center">
    <img src="images/temp_pid_control1.png" width="700" alt="temp pid control plots">

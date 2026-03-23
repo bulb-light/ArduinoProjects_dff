@@ -83,14 +83,22 @@ DCMotorSpeedControlPI/
 The result of the implemented PI controller is shown in the figure below, where the green line represents the reference speed in RPM, the purple line represents the actual speed, and the read line represents the PWM control signal:
 
 <p align="center">
-   <img src="images/speed_pi_controller_response.png" width="700" alt="Speed current reading plots">
+   <img src="images/speed_pi_controller_response.png" width="700" alt="Speed control response">
 </p>
 
 ### Block diagram
 Refer to the following diagram for the wiring connections:
 
 <p align="center">
-   <img src="images/speed_control_connections.webp" width="700" alt="Speed current reading connections">
+   <img src="images/speed_control_connections.webp" width="700" alt="encoder and mcu connections">
+</p>
+
+### PI control scheme
+
+The control architecture of a PI control system for DC motor speed regulation is shown below:
+
+<p align="center">
+   <img src="images/pi_controller_architecture.webp" width="700" alt="PI controller arch">
 </p>
 
 ## Contributing

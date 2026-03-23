@@ -75,7 +75,7 @@ DCMotorSpeedCurrentReading/
 - These signals are filtered using an EWMA low-pass filter.
 - The results are printed to the serial monitor.
 
-The unfiltered signals are is shown below.
+The unfiltered signals are shown in the figure below, where the purple line represents the unfiltered speed estimation in RPM, the green line represents the unfiltered motor current measurement, and the red line represents the PWM variation.
 
 <p align="center">
    <img src="images/speed_current_reading.png" width="700" alt="Speed current reading plots">
