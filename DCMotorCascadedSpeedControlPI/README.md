@@ -95,7 +95,7 @@ The figure below shows the behaivor of all the variables: the purple line repres
 Refer to the following diagram for the wiring connections:
 
 <p align="center">
-   <img src="images/speed_control_connections.webp" width="700" alt="Speed current response">
+   <img src="images/speed_current_reading_connections.webp" width="700" alt="Speed current response">
 </p>
 
 ### PI control scheme
