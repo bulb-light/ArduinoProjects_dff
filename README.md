@@ -75,7 +75,7 @@ Click the title to explore.
 ## 📜 License Structure
 
 - This repository is **licensed under the MIT License** (see `LICENSE` at the root).  
-- Each sub-project in its own folder also has its own `LICENSE` file, which is **also MIT**, but reflects the correct copyright author for that project.  
+- Each project has its own `LICENSE` file, which is **also MIT**, but reflects the correct copyright author for that project.  
 
 ---
 
